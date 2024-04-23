@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../src/components/Home";
+import AddProducts from "../src/components/AddProducts";
+import Auth from "../src/components/Auth";
+import ProductContent from "./components/ProductContent";
+import Cart from "./components/Cart";
+import {auth, db} from "../src/config/FireBaseConfig";
 
-function App() {
+
+const App = () => {
+  const [isAuth, setIsAuth] = useState(false);
+  const [cart, setCart] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<Auth setIsAuth={setIsAuth} />} />
+        <Route path="/addproducts" element={<AddProducts />} />
+        <Route path="/productcontent/:id" element={<ProductContent />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
