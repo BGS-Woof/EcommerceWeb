@@ -5,13 +5,10 @@ import Home from "../src/components/Home";
 import AddProducts from "../src/components/AddProducts";
 import Auth from "../src/components/Auth";
 import ProductContent from "./components/ProductContent";
-import Cart from "./components/Cart";
-import {auth, db} from "../src/config/FireBaseConfig";
 
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
-  const [cart, setCart] = useState([]);
 
   return (
     <Router>

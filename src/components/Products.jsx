@@ -33,7 +33,7 @@ const Products = ({ handleClick }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   e.preventDefault();
-                  handleClick(product); // Pass the product to handleClick
+                  handleClick(product); 
                 }}
               >
                 Add to cart
